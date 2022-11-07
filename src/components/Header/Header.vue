@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <header>
+  <div class="header">
+    <!-- <header>
       <div
         id="header-sticky"
         class="header-area header-area-white transparent-header pt-10 pb-10"
@@ -67,7 +67,7 @@
           </div>
         </div>
       </div>
-    </header>
+    </header> -->
   </div>
 </template>
 
@@ -78,4 +78,8 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
+.header{
+  // position: relative;
+  // height: auto;
+}
 </style>

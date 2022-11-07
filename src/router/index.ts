@@ -5,22 +5,34 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Index",
-    redirect:'/about',
+    redirect: to => {
+      const { hash, params, query } = to
+      // 根据hash，或者params,或者query，或者其他条件进行判断，return要去的路径
+      return { path: '/about' } 
+    },
+ 
     component: Index,
     children: [
       {
-        path: "/",
+        path: "/home",
         name: "home",
         component: HomeView,
       },
       {
-        path: "/about",
+        path: "/",
         name: "about",
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      },
+
+      {
+        path: "/PictureToolsView",
+        name: "PictureToolsView",
+        component: () =>
+          import( "../views/PictureToolsView.vue"),
       },
     ],
   },
