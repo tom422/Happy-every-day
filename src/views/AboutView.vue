@@ -13,9 +13,15 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
+import request from '@/api/requerst';
 const router = useRouter();
 const handleRouter = () => {
   router.push('/PictureToolsView')
+}
+
+
+const getData = () => {
+  request
 }
 </script>
 
