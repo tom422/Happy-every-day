@@ -1,7 +1,7 @@
 <template>
     <div>
         <HeaderVue></HeaderVue>
-        <RouterView></RouterView>
+         <router-view />
         <FooterVue></FooterVue>
     </div>
 </template>

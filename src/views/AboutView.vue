@@ -1,9 +1,9 @@
 <template>
   <div>
     <el-row class="mb-4">
-      <el-button @click="handleRouter">Default</el-button>
+      <el-button @click="handleRouter('/PictureToolsView')">Default</el-button>
       <el-button @click="getData" type="primary">Primary</el-button>
-      <el-button type="success">Success</el-button>
+      <el-button @click="handleRouter('/test')" type="success">test</el-button>
       <el-button type="info">Info</el-button>
       <el-button type="warning">Warning</el-button>
       <el-button type="danger">Danger</el-button>
@@ -15,8 +15,8 @@
 import { useRouter } from 'vue-router';
 import request from '@/api/requerst';
 const router = useRouter();
-const handleRouter = () => {
-  router.push('/PictureToolsView')
+const handleRouter = (path='/') => {
+  router.push(path)
 }
 
 
@@ -24,9 +24,8 @@ const getData = () => {
   request({
     method: 'get',
     url: '/tool/file',
-  }).then(res=>{
+  }).then((res):void=>{
     console.log(res);
-    
   })
 }
 </script>
