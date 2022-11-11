@@ -17,27 +17,39 @@ function getCharsMap() {
 var map = getCharsMap();
 
 console.log(map);
-function getBlockGray (imageData: ImageData,x: number, y: number, w: number, h: number) {
+function getBlockGray (imageData: ImageData,x: number, y: number) {
     var sumGray = 0, pixels, rgba = '';
-    for (var row = 0; row < w; row++) {
-        for (var col = 0; col < h; col++) {
-            var cx = x + col, //current position x
-                cy = y + row, //current positon y
-                index = (cy * imageData.width + cx) * 4, //current index in rgba data array
-                data = imageData.data,
-                R = data[index],
-                G = data[index + 1],
-                B = data[index + 2],
-                A = data[index + 3],
-                gray = ~~(R * 0.3 + G * 0.59 + B * 0.11);
-            sumGray += gray;
+    // for (var row = 0; row < w; row++) {
+    //     for (var col = 0; col < h; col++) {
+    //         var cx = x + col, //current position x
+    //             cy = y , // + row, //current positon y
+    //             index = (cy * imageData.width + cx) * 4, //current index in rgba data array
+    //             data = imageData.data,
+    //             R = data[index],
+    //             G = data[index + 1],
+    //             B = data[index + 2],
+    //             A = data[index + 3],
+    //             gray = ~~(R * 0.3 + G * 0.59 + B * 0.11);
+    //             sumGray += gray;
 
-            rgba = `rgba(${R},${G},${B},${A})`
-        }
-    }
-    pixels = w * h;
+    //             rgba = `rgba(${R},${G},${B},${A})`
+    //     }
+    // }
+    let index = 0;
+    index = (x * imageData.width + y) * 4; //current index in rgba data array
+    let data = imageData.data;
+    let R,G,B,A;
+    R = data[index]
+    G = data[index + 1]
+    B = data[index + 2]
+    A = data[index + 3]
+    let gray = ~~(R * 0.3 + G * 0.59 + B * 0.11);
+    sumGray += gray;
+
+     rgba = `rgba(${R},${G},${B},${A})`
+    pixels = x * y;
     return {
-        avg: ~~(sumGray / pixels),
+        avg: gray,
         rgba
     };
 };
@@ -49,26 +61,23 @@ function getBlockGray (imageData: ImageData,x: number, y: number, w: number, h: 
  * @param {*} rowChars 
  * @returns 
  */
-export function toChars(context:CanvasRenderingContext2D, width: number, height: number ,rowChars=400) {
-
+export function toChars(context:CanvasRenderingContext2D, width: number, height: number) {
+    console.log(width,height);
+    
     const canvas = document.createElement('canvas')
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D 
-    var pixels = [],
-        output = "",
-        imageData = context.getImageData(0, 0, width, height),
-        rowChars = width < height ? width : height,
-        char_h = width / 12,
-        char_w = char_h,
-        rows = height / 5,
-        cols = rowChars
-        //to get a block of pixiels average gray-value.
-        
-        for (var r = 0; r < rows; r += 6) {
-            for (var c = 0; c < cols; c += 6) {
+    var output = "", imageData = context.getImageData(0, 0, width, height);
+    canvas.width = width
+    canvas.height =height
+    
+        for (var r = 0; r < height; r+=6) {
+            for (var c = 0; c < width; c+=6) {
                 var pos_x = r //~~(c * char_w)
                 var pos_y = c  //~~(r * char_h)
                 // console.log(`pos_x:${pos_x} -------- pos_y:${pos_y}`);
-                var { avg, rgba } = getBlockGray(imageData,pos_x, pos_y, ~~12, ~~6)
+                var { avg, rgba } = getBlockGray(imageData,pos_x, pos_y)
+                console.log(avg);
+                
                 var ch = map[avg];
                 output += ch;
                 ctx.font = "6px Arial";
