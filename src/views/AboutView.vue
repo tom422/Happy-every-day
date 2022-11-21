@@ -13,18 +13,15 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import request from '@/api/requerst';
+import { Get } from '@/api/requerst';
 const router = useRouter();
-const handleRouter = (path='/') => {
+const handleRouter = (path = '/') => {
   router.push(path)
 }
 
 
 const getData = () => {
-  request({
-    method: 'get',
-    url: '/tool/file',
-  }).then((res):void=>{
+  Get('/tool/file').then((res): void => {
     console.log(res);
   })
 }
