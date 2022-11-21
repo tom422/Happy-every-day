@@ -16,25 +16,8 @@ function getCharsMap() {
 // 获取字符  集合
 var map = getCharsMap();
 
-console.log(map);
 function getBlockGray (imageData: ImageData,x: number, y: number) {
     var sumGray = 0, pixels, rgba = '';
-    // for (var row = 0; row < w; row++) {
-    //     for (var col = 0; col < h; col++) {
-    //         var cx = x + col, //current position x
-    //             cy = y , // + row, //current positon y
-    //             index = (cy * imageData.width + cx) * 4, //current index in rgba data array
-    //             data = imageData.data,
-    //             R = data[index],
-    //             G = data[index + 1],
-    //             B = data[index + 2],
-    //             A = data[index + 3],
-    //             gray = ~~(R * 0.3 + G * 0.59 + B * 0.11);
-    //             sumGray += gray;
-
-    //             rgba = `rgba(${R},${G},${B},${A})`
-    //     }
-    // }
     let index = 0;
     index = (x * imageData.width + y) * 4; //current index in rgba data array
     let data = imageData.data;
@@ -70,7 +53,7 @@ export function toChars(context:CanvasRenderingContext2D, width: number, height:
     canvas.width = width
     canvas.height =height
     
-        for (var r = 0; r < height; r+=6) {
+        for (var r = 0; r < height; r+=12) {
             for (var c = 0; c < width; c+=6) {
                 var pos_x = r //~~(c * char_w)
                 var pos_y = c  //~~(r * char_h)
