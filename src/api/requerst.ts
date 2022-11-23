@@ -61,6 +61,8 @@ export const Axios = (url: any,method='get',params={},headers: { [x: string]: an
  
    // header 配置 Token 判断Token是否过期 没过期则正常处理 过期则发起刷新Token的请求拿到新的Token保存
         config.headers.Authorization = null;
+
+        config.headers['x-csrf-token'] = window.sessionStorage.getItem('csrf')
         // if (store.getters.token) {
      // config.headers['token'] = getToken()
     //}
@@ -116,10 +118,10 @@ export const Axios = (url: any,method='get',params={},headers: { [x: string]: an
         // `transformRequest` 允许在向服务器发送前，修改请求数据
         // 只能用在 'PUT', 'POST' 和 'PATCH' 这几个请求方法
         // 后面数组中的函数必须返回一个字符串，或 ArrayBuffer，或 Stream
-        transformRequest: [function (data, headers:any) {
-            // 对 data 进行任意转换处理
-            return data;
-        }],
+        // transformRequest: [function (data, headers:any) {
+        //     // 对 data 进行任意转换处理
+        //     return data;
+        // }],
  
         // `transformResponse` 在传递给 then/catch 前，允许修改响应数据
         transformResponse: [function (data) {
@@ -157,7 +159,8 @@ export const Axios = (url: any,method='get',params={},headers: { [x: string]: an
     return new Promise((resolve, reject) => {
         instance.then(response => {
             // 2. 如果成功了, 调用resolve(value)
-            resolve(response);
+            const data = response.data
+            resolve(data);
         })
             .catch(error => {
                 // 3. 如果失败了, 不调用reject(reason), 而是提示异常信息

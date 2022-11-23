@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-upload v-model:file-list="fileList" action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
+        <el-upload v-model:file-list="fileList" action="" :http-request="upload"
             list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
             <el-icon>
                 <Plus />
@@ -17,7 +17,8 @@
 import { ref } from 'vue'
 import { Plus } from '@element-plus/icons-vue'
 
-import type { UploadProps, UploadUserFile } from 'element-plus'
+import { Post } from '@/api/requerst';
+import type { UploadProps, UploadUserFile, UploadRequestOptions } from 'element-plus'
 
 const fileList = ref<UploadUserFile[]>([
   {
@@ -36,6 +37,14 @@ const handleRemove: UploadProps['onRemove'] = (uploadFile, uploadFiles) => {
 const handlePictureCardPreview: UploadProps['onPreview'] = (uploadFile) => {
   dialogImageUrl.value = uploadFile.url!
   dialogVisible.value = true
+}
+
+const upload = (Options: UploadRequestOptions)=>{
+  console.log(Options);
+  const fromData = new FormData()
+  fromData.set('name',Options.file.name);
+  fromData.set('file',Options.file);
+  Post('/tool/addFile',fromData)
 }
 </script>
 
