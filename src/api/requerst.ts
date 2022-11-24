@@ -159,7 +159,7 @@ export const Axios = (url: any,method='get',params={},headers: { [x: string]: an
     return new Promise((resolve, reject) => {
         instance.then(response => {
             // 2. 如果成功了, 调用resolve(value)
-            const data = response.data
+            const data = JSON.parse(response.data) 
             resolve(data);
         })
             .catch(error => {
