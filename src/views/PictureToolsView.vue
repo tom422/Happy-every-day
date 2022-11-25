@@ -70,9 +70,11 @@ const upload = (Options: UploadRequestOptions) => {
   console.log(Options);
   const fromData = new FormData()
   fromData.set('name',Options.file.name);
-  fromData.set('file',Options.file);
   fromData.set('type',Options.file.type);
-  Post('/tool/addFile',fromData).then(res=>{
+  fromData.set('file',Options.file);
+  Post('/tool/addFile',fromData,{
+    "content-type": "multipart/form-data"
+  }).then(res=>{
     console.log(res);
     getFileList()
   })
