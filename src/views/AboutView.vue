@@ -18,8 +18,6 @@ const router = useRouter();
 const handleRouter = (path = '/') => {
   router.push(path)
 }
-
-
 const getData = () => {
   Get('/tool/file').then((res): void => {
     console.log(res);

@@ -25,7 +25,7 @@ export function fileZip(fileList:filelist) {
   const worker = new myWorker({ type: "model" });
   // 主进程向子进程发送信息:
   worker.postMessage({
-    fileList: fileList,
+    fileList:fileList,
   });
 
   // 主进程接收子进程返回信息:

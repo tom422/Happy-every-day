@@ -10,7 +10,7 @@
 
     <el-row :gutter="12">
     <el-col :span="8">
-      <el-card shadow="hover"> Hover </el-card>
+      <el-card shadow="hover" @click="jumRouter('/PictureToolsView')"> Hover </el-card>
     </el-col>
     <el-col :span="8">
       <el-card shadow="hover"> Hover </el-card>
@@ -25,16 +25,19 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 import Header from '@/components/Header/Header.vue';
 
 export default defineComponent({
   name: 'HomeView',
   components: {
-    HelloWorld,
     Header
   },
+
+  methods:{
+    jumRouter(url:string){
+      this.$router.push(url)
+    }
+  }
 });
 </script>
 

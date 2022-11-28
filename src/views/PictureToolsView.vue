@@ -51,7 +51,8 @@ import { fileSave, fileZip } from '@/tool/file'
 import { Post, Get } from '@/api/requerst';
 import type { UploadProps, UploadUserFile, UploadRequestOptions } from 'element-plus'
 import { nanoid } from "nanoid";
-import { fa } from 'element-plus/es/locale';
+
+import { toRaw } from '@vue/reactivity'
 
 const dialogImageUrl = ref('')
 const dialogVisible = ref(false)
@@ -151,7 +152,7 @@ const downloadFile = (item: any) => {
 }
 
 const downloadFileZip = ()=>{
-  fileZip(fileList.value as any)
+  fileZip(toRaw(fileList.value as any))
 }
 </script>
 

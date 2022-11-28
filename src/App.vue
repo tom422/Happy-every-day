@@ -22,6 +22,10 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  // background-image: url('./assets/images/bg.jpg');
+  // background-size: 100% 100%;
+  // min-height: 100vh;
 }
 
 nav {

@@ -37,12 +37,12 @@ export default defineComponent({
 }
 
 .line{
-  margin: 4px 0;
+  margin: 2px 0;
   border-bottom: 1px dashed #d2d2dd;
 }
 .icon-title {
   color: rgba(207, 150, 44, 0.788);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
    
 }
