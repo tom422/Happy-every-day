@@ -36,4 +36,12 @@ nav {
     }
   }
 }
+
+
+.page-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 </style>

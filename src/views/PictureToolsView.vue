@@ -151,17 +151,11 @@ const downloadFile = (item: any) => {
 }
 
 const downloadFileZip = ()=>{
-  fileZip()
+  fileZip(fileList.value as any)
 }
 </script>
 
 <style scoped>
-.page-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
 
 .card-bg {}
 

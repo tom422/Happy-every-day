@@ -8,13 +8,13 @@ const routes: Array<RouteRecordRaw> = [
     redirect: to => {
       const { hash, params, query } = to
       // 根据hash，或者params,或者query，或者其他条件进行判断，return要去的路径
-      return { path: '/about' } 
+      return { path: '/home' } 
     },
  
     component: Index,
     children: [
       {
-        path: "/home",
+        path: "home",
         name: "home",
         component: HomeView,
       },

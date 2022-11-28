@@ -1,16 +1,17 @@
-import JsZip from 'jszip'
-const ctx: Worker = self as any;
-const zip = new JsZip()
-const img = zip.folder("images") as any;
+import JSZip from 'jszip'
+// const ctx: Worker = self as any;
+const ctx = self
+const zip = new JSZip()
+const img = zip.folder("images");
 // 监听 message 事件
 ctx.addEventListener('message', (res) => {
-//   console.log('很好收到消息了');
+  console.log('很好收到消息了:',res);
 
   fetch('http://rlwbdailh.hn-bkt.clouddn.com/demo.jpg?e=1669615855&token=zzYq8yJfigLqri2mrU-KuHQhqlYWWA0TOHzpnmMH:QnNVpHTmQaAb_XyLHnUyPWvgnv8=').then(function(response) {
    
     return response.blob();
   }).then(function(data) {
-    img.file("smile.jpg", data);
+    (img as JSZip).file("smile.jpg", data);
    
     zip.generateAsync({type:"blob"})
         .then(function(content) {
@@ -43,4 +44,4 @@ ctx.addEventListener('error', (e) => {
 //   console.log(e);
 // };
 
-export default ctx;
+// export default ctx;
