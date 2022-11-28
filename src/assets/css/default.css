@@ -102,3 +102,9 @@
  .dn{
    display: none;
  }
+
+ .text-ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+ }

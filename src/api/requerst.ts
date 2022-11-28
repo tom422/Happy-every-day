@@ -96,7 +96,6 @@ export const Axios = (url: any,method='get',params={},headers: { [x: string]: an
         // 对响应错误做点什么
         return Promise.reject(error);
     });
- 
     // 1. 执行异步ajax请求
     const instance = axios({
         // `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。
@@ -155,11 +154,26 @@ export const Axios = (url: any,method='get',params={},headers: { [x: string]: an
         // `responseType` 表示服务器响应的数据类型，可以是 'arraybuffer', 'blob', 'document', 'json', 'text', 'stream'
         responseType: 'json', // default
     });
- 
+    function isJSON(str: string) {
+        if (typeof str == 'string') {
+            try {
+                var obj=JSON.parse(str);
+                if(typeof obj == 'object' && obj ){
+                    return JSON;
+                }else{
+                    return str;
+                }
+            } catch(e) {
+                console.log('error：'+str+'!!!'+e);
+                return str;
+            }
+        }
+        console.log('It is not a string!')
+    }
     return new Promise((resolve, reject) => {
         instance.then(response => {
             // 2. 如果成功了, 调用resolve(value)
-            const data = response.data
+            const data = isJSON(response.data)
             resolve(data);
         })
             .catch(error => {

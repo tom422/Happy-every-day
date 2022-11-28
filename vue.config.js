@@ -20,7 +20,7 @@ module.exports = defineConfig({
   chainWebpack: config => {
     config.module
       .rule('worker-loader')
-      .test(/.*\.worker\.js$/)
+      .test(/.*\.worker\.ts$/)
       .use({
         loader: 'worker-loader',
         options: {
