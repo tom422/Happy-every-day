@@ -1,11 +1,5 @@
 <template>
   <div class="page-content">
-    <!-- <el-upload v-model:file-list="fileList" action="" 
-            list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
-            <el-icon>
-                <Plus />
-            </el-icon>
-        </el-upload> -->
     <el-upload class="upload-demo" drag :http-request="upload" :limit="10" :show-file-list="false" multiple>
       <div class="card-bg">
         <el-icon class="el-icon--upload">
@@ -17,7 +11,6 @@
       </div>
     </el-upload>
     <div>
-      <!-- <el-button type="primary" @click="getFileList"> 获取文件 </el-button> -->
     </div>
     <div class="file_list">
       <div v-for="item in fileList" :key="item.id">

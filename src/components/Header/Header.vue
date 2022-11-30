@@ -1,16 +1,18 @@
 <template>
-  <div class="header">
-    <el-row>
-      <el-col :span="20" :offset="2">
-        <div class="icon">
-          <div>
-            <div class="icon-title">开心每一天</div>
-            <div class="line"></div>
-            <div class="icon-subtitle">live-each-day</div>
+  <div class="header-default">
+    <div class="header">
+      <el-row>
+        <el-col :span="20" :offset="2">
+          <div class="icon">
+            <div>
+              <div class="icon-title">开心每一天</div>
+              <div class="line"></div>
+              <div class="icon-subtitle">live-each-day</div>
+            </div>
           </div>
-        </div>
-      </el-col>
-    </el-row>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -21,36 +23,47 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
+.header-default{
+  height: 60px;
+}
 .header {
+  width: 100%;
   height: 60px;
   // box-shadow: 0px 5px 6px 5px #dcdcdc3b;
   box-shadow: 0 1px 10px rgb(151 164 175 / 10%);
   user-select: none;
   text-align: left;
-  
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  // background-image: radial-gradient(transparent 1px, #ffffff 1px);
+  // background-size: 4px 4px;
+  backdrop-filter: saturate(50%) blur(4px);
 }
 
-.icon{
+.icon {
   height: 60px;
   display: flex;
   align-items: center;
 }
 
-.line{
+.line {
   margin: 2px 0;
   border-bottom: 1px dashed #d2d2dd;
 }
+
 .icon-title {
   color: rgba(207, 150, 44, 0.788);
   font-size: 18px;
   font-weight: 600;
-   
+
 }
 
-.icon-subtitle{
+.icon-subtitle {
   color: rgba(207, 150, 44, 0.788);
   font-size: 12px;
   transform: scale(0.8);
-  transform-origin: left top; 
+  transform-origin: left top;
 }
 </style>

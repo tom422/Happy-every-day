@@ -29,7 +29,7 @@ function getBlockGray (imageData: ImageData,x: number, y: number) {
     let gray = ~~(R * 0.3 + G * 0.59 + B * 0.11);
     sumGray += gray;
 
-     rgba = `rgba(${R},${G},${B},${A})`
+    rgba = `rgba(${R},${G},${B},${A})`
     pixels = x * y;
     return {
         avg: gray,
