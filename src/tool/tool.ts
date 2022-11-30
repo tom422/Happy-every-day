@@ -9,7 +9,7 @@
  * @param {String} text 需要复制的内容
  * @return {Boolean} 复制成功:true或者复制失败:false  执行完函数后，按ctrl + v试试
 */
-function copyText(text:string){
+export function copyText(text:string){
 
     if (navigator.clipboard) {
         navigator.clipboard.writeText(text);

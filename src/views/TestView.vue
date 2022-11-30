@@ -13,12 +13,20 @@
                 </div>
             </el-upload>
         </div>
+        
         <div class="preview-img"> 
             <img ref="imgNode" @load="nodeImgOnload"  alt="" />
         </div>
        
         <div class="preview-canvas">
             <canvas ref="myCanvas" width="800" height="400"></canvas>
+        </div>
+
+        <div class="preview">
+            <div style="text-align: center;">
+                <el-button @click="onCopyText(imgText)"> 复制文本</el-button>
+            </div>
+            <pre>{{imgText}}</pre>
         </div>
        </div>
     </div>
@@ -28,9 +36,11 @@
 import { onMounted, ref } from 'vue';
 import { imageToGrey, toChars } from '@/tool/pic_to_chars';
 import type { UploadRequestOptions } from 'element-plus';
-import { UploadFilled } from '@element-plus/icons-vue'
+import { UploadFilled } from '@element-plus/icons-vue';
+import { copyText } from '@/tool/tool'
 const myCanvas = ref<HTMLCanvasElement | null>(null);
 const imgNode = ref<HTMLImageElement | null>(null);
+const imgText = ref('');
 const nodeImgOnload = () => {
     const canvas = myCanvas.value as HTMLCanvasElement
     const imags = imgNode.value as HTMLImageElement
@@ -53,8 +63,7 @@ const nodeImgOnload = () => {
     ctx.putImageData(pixels, 0, 0);
     let data = toChars(ctx, canvas.width, canvas.height)
     ctx.putImageData(data.getImageData, 0, 0);
-
-
+    imgText.value = data.output
 }
 onMounted(() => {
     // const imags =  imgNode.value as HTMLImageElement
@@ -85,6 +94,7 @@ const upload = (Options: UploadRequestOptions) => {
 		}
 }   
 
+const onCopyText = copyText
 
 </script>
 
@@ -94,6 +104,11 @@ const upload = (Options: UploadRequestOptions) => {
     
     img{
         max-width: 100%;
+        
     }
+}
+
+.preview{
+    overflow: auto;
 }
 </style>
