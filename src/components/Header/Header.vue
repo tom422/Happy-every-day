@@ -3,13 +3,13 @@
     <div class="header">
       <el-row>
         <el-col :span="20" :offset="2">
-          <div class="icon">
+          <!-- <div class="icon">
             <div>
               <div class="icon-title">开心每一天</div>
               <div class="line"></div>
               <div class="icon-subtitle">live-each-day</div>
             </div>
-          </div>
+          </div> -->
         </el-col>
       </el-row>
     </div>

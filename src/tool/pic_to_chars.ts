@@ -45,9 +45,8 @@ function getBlockGray (imageData: ImageData,x: number, y: number) {
  * @returns 
  */
 export function toChars(context:CanvasRenderingContext2D, width: number, height: number) {
-    console.log(width,height);
-    
     const canvas = document.createElement('canvas')
+    const dpr = window.devicePixelRatio;
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D 
     var output = "", imageData = context.getImageData(0, 0, width, height);
     canvas.width = width
@@ -59,8 +58,6 @@ export function toChars(context:CanvasRenderingContext2D, width: number, height:
                 var pos_y = c  //~~(r * char_h)
                 // console.log(`pos_x:${pos_x} -------- pos_y:${pos_y}`);
                 var { avg, rgba } = getBlockGray(imageData,pos_x, pos_y)
-                console.log(avg);
-                
                 var ch = map[avg];
                 output += ch;
                 ctx.font = "6px Arial";
@@ -71,8 +68,7 @@ export function toChars(context:CanvasRenderingContext2D, width: number, height:
     
             output += '\r\n';
         };
-    console.log(output);
-    
+        ctx.scale(dpr, dpr);
     return {
         canvas,
         getImageData:ctx.getImageData(0,0,width,height),

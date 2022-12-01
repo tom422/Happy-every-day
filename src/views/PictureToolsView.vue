@@ -17,7 +17,9 @@
         <div class="file_list_item">
           <div class="item_name text-ellipsis">{{item.name}}</div>
           <div class="item_progress">
-            <el-progress :stroke-width="15" :percentage="100" :text-inside="true" :status="item.status ? 'success':'exception'" :indeterminate="item.indeterminate" :duration="1" />
+            <el-progress :stroke-width="15" :percentage="100" :text-inside="true" :status="item.status ? 'success':'exception'" :indeterminate="item.indeterminate" :duration="1" >
+              <span>{{item.status ? 'success':'error'}}</span>
+            </el-progress>
           </div>
           <div class="item_download">
             <el-button @click="downloadFile(item)">下载</el-button>

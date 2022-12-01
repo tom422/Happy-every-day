@@ -2,7 +2,7 @@
     <div>
        <div class="page-content">
         <div>
-            <el-upload class="upload-demo" drag :http-request="upload" :limit="1" :show-file-list="false" multiple>
+            <el-upload class="upload-demo"  v-model:file-list="fileList" drag :http-request="upload" :limit="1" :show-file-list="false" multiple>
                 <div class="card-bg">
                     <el-icon class="el-icon--upload">
                         <upload-filled />
@@ -35,12 +35,13 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { imageToGrey, toChars } from '@/tool/pic_to_chars';
-import type { UploadRequestOptions } from 'element-plus';
+import type { UploadRequestOptions,UploadUserFile } from 'element-plus';
 import { UploadFilled } from '@element-plus/icons-vue';
 import { copyText } from '@/tool/tool'
 const myCanvas = ref<HTMLCanvasElement | null>(null);
 const imgNode = ref<HTMLImageElement | null>(null);
 const imgText = ref('');
+const fileList = ref<UploadUserFile[]>([])
 const nodeImgOnload = () => {
     const canvas = myCanvas.value as HTMLCanvasElement
     const imags = imgNode.value as HTMLImageElement
@@ -62,6 +63,7 @@ const nodeImgOnload = () => {
     pixels = imageToGrey(pixels)
     ctx.putImageData(pixels, 0, 0);
     let data = toChars(ctx, canvas.width, canvas.height)
+    ctx.scale(0.1,0.1);
     ctx.putImageData(data.getImageData, 0, 0);
     imgText.value = data.output
 }
@@ -72,16 +74,18 @@ onMounted(() => {
 
 /** 上传文件 */
 const upload = (Options: UploadRequestOptions) => {
+    fileList.value = []
     const img =  imgNode.value as HTMLImageElement
     // 获得文件
 		var file = Options.file;
-		
+		console.log(file)
 		var reader = new FileReader();
 		
 		// 将文件读取为DataUrl
 		reader.readAsDataURL(file);
 		
 		reader.onload = function(event) {
+            console.log(this.result)
 			img.src = this.result as string;
 		}
 		
