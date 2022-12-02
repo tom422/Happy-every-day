@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<style>
+
+    @property --color-mian {
+        syntax: '<color>';
+        inherits: false;
+        initial-value: #ffd900bb;
+    }
+
+    @property --color-base {
+        syntax: '<color>';
+        inherits: false;
+        initial-value: #fff;
+    }
+    body{
+        height: 100vh;
+        background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, var(--color-mian) 25px, var(--color-mian) 50px);
+        background-size: 200% 200% ;
+        animation: myfirst 3s ease 2;
+    }
+
+    @keyframes myfirst
+    {
+        from {
+            --color-mian:#ffd900bb;
+           background-position: 0 0;
+        }
+        to {
+            --color-mian:#faf;
+            background-position: -100% -100% ;
+        }
+    }
+    /* Safari 与 Chrome */
+    /* @-webkit-keyframes myfirst 
+    {
+        from {
+            
+        }
+        to {
+            
+        }
+    } */
+</style>
