@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <style type="text/css">
+            
+            
+        .check_box{
+            height: 20px;
+            width: 20px;
+            display: block;
+        
+            /* background: url("images/shop-icon.png") no-repeat; */
+            background-color: bisque;
+            background-size: 50px 100px;
+        }
+        /*属性选择器*/
+        .check_box[checked]{
+            background-position: -25px 0;
+            background-color: red;
+        }
+        </style>
+    </head>
+    <body>        
+            <span class="check_box"></span>
+  
+        <script type="text/javascript">
+            var checkBtn = document.getElementsByClassName('check_box');
+            for(var j = 0 ; j < checkBtn.length; j++){
+                checkBtn[j].onclick = function(){
+                    var hasChecked = this.getAttribute('checked');
+                    if(hasChecked !== null){
+                        this.removeAttribute('checked');
+                    }else{
+                        this.setAttribute('checked',' ');
+                    }
+                }
+            }
+        </script>
+
+    </body>
+</html>
