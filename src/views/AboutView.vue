@@ -50,6 +50,10 @@ const getData = () => {
   --main_color: #f4cf47;
   --base_color: #000;
   --sub_color1: #f4e19c;
+  --sub_color2: #ff8108;
+  --border_radius1: 60px 60px 40px 40px / 48px 48px 30px 30px;
+  --border_radius2: 70px 70px 40px 40px / 48px 48px 30px 30px;
+  --border_radius3: 40px 40px 40px 40px / 48px 48px 30px 30px;
 }
 
 .button {
@@ -57,7 +61,6 @@ const getData = () => {
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
   box-sizing: border-box;
   width: 280px;
   height: 80px;
@@ -85,7 +88,6 @@ const getData = () => {
   margin: auto 0;
   width: 24px;
   height: 24px;
-
   background: var(--base_color);
   clip-path: path('M24,12.02c0-1.09-.75-1.71-.81-1.77L11.17,.45c-.91-.74-2.21-.56-2.91,.42-.69,.97-.52,2.37,.39,3.11l7.12,5.81-13.7-.02h0C.93,9.77,0,10.76,0,11.99c0,1.23,.93,2.22,2.07,2.22l13.7,.02-7.13,5.78c-.91,.74-1.09,2.13-.4,3.11,.41,.58,1.03,.88,1.65,.88,.44,0,.88-.15,1.25-.45l12.04-9.76c.07-.06,.82-.67,.82-1.77Z');
 }
@@ -115,11 +117,7 @@ const getData = () => {
   transform: rotateY(180deg);
 }
 
-// .button__wrapper {
-//   height: 100%;
-//   position: relative;
-// }
-
+ 
 .button:hover .button__text {
   letter-spacing: 6px;
 }
@@ -152,7 +150,8 @@ const getData = () => {
 .birdBox {
   position: absolute;
   top: -54px;
-
+  left: 20px;
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -160,36 +159,30 @@ const getData = () => {
   width: 180px;
   height: 56px;
 }
-
-.button__bird {
-  --border_radius1: 60px 60px 40px 40px / 48px 48px 30px 30px;
-}
-
 .bird {
   border-radius: var(--border_radius1);
-}
-
-.bird {
   position: relative;
+  display: flex;
+  justify-content: center;
+  animation: sleep 1s ease infinite alternate;
+  width: 50px;
+  height: 40px;
+  background-color: var(--main_color);
+  border: 2px solid var(--base_color);
 }
+ 
 
 .bird::before {
   content: '';
-
   position: absolute;
   top: -12px;
   left: 22px;
-
   width: 12px;
   height: 12px;
-
   background: #000;
   clip-path: path('M10.23,3.32c-3.54,.63-5.72,2.51-7.02,4.23-.33-1.58-.34-3.54,.93-5.12,.52-.65,.41-1.59-.24-2.11C3.24-.19,2.29-.08,1.77,.57c-3.82,4.77-.31,11.11-.13,11.42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0-.01-.02,2.49,.04,2.52,0,.1-.14,1.54-4.82,6.59-5.71,.82-.14,1.37-.92,1.22-1.74s-.94-1.36-1.75-1.21Z');
 }
-
-.button--bird {
-  --sub_color2: #ff8108;
-}
+ 
 
 .bird__face {
   position: absolute;
@@ -201,11 +194,7 @@ const getData = () => {
   background: var(--sub_color2);
   border-radius: 50% 50% 50% 50% / 78% 78% 22% 22%;
 }
-
-.bird {
-  display: flex;
-  justify-content: center;
-}
+ 
 
 .bird__face::before,
 .bird__face::after {
@@ -247,10 +236,7 @@ const getData = () => {
   animation-fill-mode: forwards;
 }
 
-.button--bird {
-  --border_radius2: 70px 70px 40px 40px / 48px 48px 30px 30px;
-  --border_radius3: 40px 40px 40px 40px / 48px 48px 30px 30px;
-}
+ 
 
 @keyframes wakeup {
   0% {
@@ -455,7 +441,5 @@ const getData = () => {
   }
 }
 
-.bird {
-  animation: sleep 1s ease infinite alternate;
-}
+ 
 </style>
