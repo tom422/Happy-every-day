@@ -18,7 +18,7 @@
           <el-card shadow="hover" @click="jumRouter('/test')"> 图片转字符串 </el-card>
         </el-col>
         <el-col :span="8">
-          <el-card shadow="hover"> Hover </el-card>
+          <el-card shadow="hover" @click="jumRouter('/about')"> Hover </el-card>
         </el-col>
       </el-row>
     </div>
