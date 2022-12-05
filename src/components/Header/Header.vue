@@ -3,13 +3,13 @@
     <div class="header">
       <el-row>
         <el-col :span="20" :offset="2">
-          <!-- <div class="icon">
+          <div class="icon">
             <div>
               <div class="icon-title">开心每一天</div>
               <div class="line"></div>
               <div class="icon-subtitle">live-each-day</div>
             </div>
-          </div> -->
+          </div>
         </el-col>
       </el-row>
     </div>
@@ -54,14 +54,15 @@ export default defineComponent({
 }
 
 .icon-title {
-  color: rgba(207, 150, 44, 0.788);
+  // color: rgba(207, 150, 44, 0.788);
   font-size: 18px;
   font-weight: 600;
-
+  color: var(--main-color);
 }
 
 .icon-subtitle {
-  color: rgba(207, 150, 44, 0.788);
+  // color: rgba(207, 150, 44, 0.788);
+  color: var(--main-color);
   font-size: 12px;
   transform: scale(0.8);
   transform-origin: left top;
