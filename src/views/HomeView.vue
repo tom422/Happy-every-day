@@ -8,17 +8,35 @@
 
     <div class="card">
       <el-row :gutter="12">
-        <el-col :span="8">
+        <el-col class="col" :span="8">
           <el-card shadow="hover" @click="jumRouter('/PictureToolsView')">
             <el-icon><Picture /></el-icon>
-            图片压缩
+             图片压缩
           </el-card>
         </el-col>
-        <el-col :span="8">
+        <el-col class="col" :span="8">
           <el-card shadow="hover" @click="jumRouter('/test')"> 图片转字符串 </el-card>
         </el-col>
-        <el-col :span="8">
+        <el-col class="col" :span="8">
           <el-card shadow="hover" @click="jumRouter('/about')"> Hover </el-card>
+        </el-col>
+        <el-col class="col" :span="8">
+          <el-card shadow="hover" @click="jumRouter('/CloudView')"> 云 </el-card>
+        </el-col>
+        <el-col class="col" :span="8">
+          <el-card shadow="hover" @click="jumRouter('/CloudView')"> 云 </el-card>
+        </el-col>
+        <el-col class="col" :span="8">
+          <el-card shadow="hover" @click="jumRouter('/CloudView')"> 云 </el-card>
+        </el-col>
+        <el-col class="col" :span="8">
+          <el-card shadow="hover" @click="jumRouter('/CloudView')"> 云 </el-card>
+        </el-col>
+        <el-col class="col" :span="8">
+          <el-card shadow="hover" @click="jumRouter('/CloudView')"> 云 </el-card>
+        </el-col>
+        <el-col class="col" :span="8">
+          <el-card shadow="hover" @click="jumRouter('/CloudView')"> 云 </el-card>
         </el-col>
       </el-row>
     </div>
@@ -44,9 +62,13 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .card {
   box-sizing: border-box;
   padding: 20px;
+
+  .col{
+    padding: 10px 0;
+  }
 }
 </style>

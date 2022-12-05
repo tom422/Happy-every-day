@@ -13,6 +13,7 @@
 // @import '@/assets/css/meanmenu.css';
 // @import '@/assets/css/slick.css';
 @import '@/assets/css/default.css';
+@import '@/assets/css/bg.scss';
 // @import '@/assets/css/style.css';
 // @import '@/assets/css/responsive.css';
 

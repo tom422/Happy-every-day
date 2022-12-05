@@ -1,0 +1,78 @@
+// @property --color-mian {
+//   syntax: "<color>";
+//   inherits: false;
+//   initial-value: #ffd900bb;
+// }
+
+// @property --color-base {
+//   syntax: "<color>";
+//   inherits: false;
+//   initial-value: #fff;
+// }
+// @mixin keyframes($animationName) {
+//     @keyframes #{$animationName} {
+//       @content;
+//     }
+//   }
+//   @mixin stepMonkey {
+//     animation: myfirst 10s linear infinite;
+//     @include keyframes('myfirst') {
+//       @for $i from 0 through 100 {
+//         #{$i}% {
+//         //   --bg-size: #{$i}px;
+//         //   --bg-size2: #{$i * 2}px;
+//           background-image:  conic-gradient(
+
+//             from #{$i}deg at 400px 300px,
+
+//             hsla(170deg, 100%, 70%, .7),
+
+//             transparent 50%,
+
+//             transparent),
+// // 45
+//             linear-gradient(-#{$i}deg, #060d5e, #002268);;
+//         }
+//       }
+//     }
+//   }
+// body {
+//   --bg-size: 25px;
+//   --bg-size2: 50px;
+//   height: 100vh;
+// //   background-image: repeating-linear-gradient(
+// //     45deg,
+// //     transparent,
+// //     transparent var(--bg-size),
+// //     var(--color-mian) var(--bg-size),
+// //     var(--color-mian) var(--bg-size2)
+// //   );
+// background-image:  conic-gradient(
+
+//     from -45deg at 400px 300px,
+
+//     hsla(170deg, 100%, 70%, .7),
+
+//     transparent 50%,
+
+//     transparent),
+//     linear-gradient(0deg, #060d5e, #002268);
+//   background-size: 200vw 100%;
+//   background-attachment: fixed;
+//   @include stepMonkey;
+ 
+// }
+
+
+ 
+
+/* Safari 与 Chrome */
+/* @-webkit-keyframes myfirst 
+    {
+        from {
+            
+        }
+        to {
+            
+        }
+    } */

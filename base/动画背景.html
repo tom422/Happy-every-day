@@ -26,21 +26,26 @@
         initial-value: #fff;
     }
     body{
+        --bg-size:25px;
+        --bg-size2: 50px;
         height: 100vh;
-        background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, var(--color-mian) 25px, var(--color-mian) 50px);
-        background-size: 200% 200% ;
+        background-image: repeating-linear-gradient(45deg, transparent, transparent var(--bg-size), var(--color-mian) var(--bg-size), var(--color-mian) var(--bg-size2));
+        background-size:  200px 100% ;
         animation: myfirst 10s linear  infinite; 
     }
 
     @keyframes myfirst
     {
         from {
-            
-           background-position: 0 0;
+            --bg-size:25px;
+            --bg-size2: 50px;
+           /* background-position: 0 0; */
+           /* background-position: 0%; */
         }
         to {
-             
-            background-position: -100%;
+            --bg-size:55px;
+            --bg-size2:100px;
+            /* background-position: -100%; */
         }
     }
     /* Safari 与 Chrome */
