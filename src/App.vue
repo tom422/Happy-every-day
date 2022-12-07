@@ -14,6 +14,7 @@
 // @import '@/assets/css/slick.css';
 @import '@/assets/css/default.css';
 @import '@/assets/css/bg.scss';
+@import '@/assets/css/media.scss';
 // @import '@/assets/css/style.css';
 // @import '@/assets/css/responsive.css';
 
@@ -43,10 +44,4 @@ nav {
 }
 
 
-.page-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
 </style>

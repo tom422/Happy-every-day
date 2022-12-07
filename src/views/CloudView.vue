@@ -1,7 +1,13 @@
 <template>
-    <div>
+    <div class="page-content">
         <canvas class="myClouds" ref="myClouds"></canvas>
-        <img ref="image" src="../assets/images/image.jpg"/>
+       <div>
+            <img ref="image" src="../assets/images/image.jpg"/>
+       </div>
+       <div>
+            <img :src="imageData"/>
+       </div>
+       <el-button @click="onFileSave">裁剪图片</el-button>
     </div>
 </template>
 
@@ -13,6 +19,8 @@ import 'cropperjs/dist/cropper.css'
 import Cropper from 'cropperjs';
 const myClouds = ref(null)
 const image = ref(null)
+const imageData = ref('')
+let myCropper:Cropper
 onMounted(()=>{
     const instance = klouds.create({
         selector:myClouds.value as unknown as HTMLCanvasElement,
@@ -23,8 +31,16 @@ onMounted(()=>{
     instance.setCloudColor2('#ffffff');
     instance.setBgColor('#fff');
     instance.start()
-    const cropper = new Cropper(image.value as unknown as HTMLImageElement)
+    myCropper = new Cropper(image.value as unknown as HTMLImageElement)
  })
+
+
+ const onFileSave = ()=>{
+    imageData.value = myCropper.getCroppedCanvas({
+        imageSmoothingQuality: 'high'
+      }).toDataURL('image/jpeg')
+ }
+
 </script>
 
 <style lang="scss" scoped>
