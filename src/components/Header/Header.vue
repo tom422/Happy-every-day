@@ -3,7 +3,7 @@
     <div class="header">
       <el-row>
         <el-col :span="20" :offset="2">
-          <div class="icon">
+          <div class="icon" @click="goHome">
             <div>
               <div class="icon-title">开心每一天</div>
               <div class="line"></div>
@@ -19,6 +19,17 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
+        name:'header',
+        data(){
+          return{
+
+          }
+        },
+        methods:{
+          goHome(){
+            this.$router.push('/')
+          }
+        }
 
 })
 </script>

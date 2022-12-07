@@ -24,9 +24,9 @@
         </style>
     </head>
     <body>        
-            <span class="check_box"></span>
-  
+        <span class="check_box"></span>
         <script type="text/javascript">
+            'use strict'
             var checkBtn = document.getElementsByClassName('check_box');
             for(var j = 0 ; j < checkBtn.length; j++){
                 checkBtn[j].onclick = function(){
@@ -38,6 +38,14 @@
                     }
                 }
             }
+            var a = {
+                name:'sss'
+            }
+            var array = ['1','2']
+            var b = a
+            console.log(Object.prototype.toString.call(a.name) );
+            console.log( Object.prototype.toString())
+            console.log(a instanceof Object);
         </script>
 
     </body>
