@@ -2,7 +2,7 @@
     <div class="page-content">
         
        <div>
-            <img ref="image" src="../assets/images/image.jpg"/>
+            <img ref="image" src="@/assets/images/image.jpg"/>
        </div>
        <div>
             <img :src="imageData"/>
@@ -14,7 +14,6 @@
 <script setup lang="ts">
 import { ref } from '@vue/reactivity'
 import { onMounted } from '@vue/runtime-core'
- 
 import 'cropperjs/dist/cropper.css'
 import Cropper from 'cropperjs';
 // const myClouds = ref(null)

@@ -44,7 +44,7 @@ const routes: Array<RouteRecordRaw> = [
         path: "/CloudView",
         name: "CloudView",
         component: () =>
-          import( "../views/CloudView.vue"),
+          import( "../views/CroppingView/CroppingView.vue"),
       },
     ],
   },
