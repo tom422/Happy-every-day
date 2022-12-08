@@ -1,5 +1,6 @@
 <template>
   <div class="home page-content">
+    <canvas class="myClouds" ref="myClouds"></canvas>
     <el-carousel :interval="5000" arrow="always">
       <el-carousel-item v-for="item in 4" :key="item">
         <h3 text="2xl" justify="center">{{ item }}</h3>
@@ -47,13 +48,24 @@
 import { defineComponent } from 'vue';
 import Header from '@/components/Header/Header.vue';
 import { Picture } from '@element-plus/icons-vue'
+import * as klouds from 'klouds'   
 export default defineComponent({
   name: 'HomeView',
   components: {
     Header,
     Picture
   },
-
+  mounted(){
+     const instance = klouds.create({
+        selector:this.$refs.myClouds as HTMLCanvasElement,
+        layerCount: 5,
+        speed: 1,
+    });
+    instance.setCloudColor1('#1ab3cc');
+    instance.setCloudColor2('#ffffff');
+    instance.setBgColor('#fff');
+    instance.start()
+  },
   methods: {
     jumRouter(url: string) {
       this.$router.push(url)
@@ -70,5 +82,12 @@ export default defineComponent({
   .col{
     padding: 10px 0;
   }
+}
+
+.myClouds{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
 }
 </style>
