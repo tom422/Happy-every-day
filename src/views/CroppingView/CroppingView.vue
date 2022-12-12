@@ -21,8 +21,9 @@
                               <template #trigger>
                                    <el-button type="primary">
                                         <el-icon>
-                                             <UploadFilled />
+                                             <UploadFilled /> 
                                         </el-icon>
+                                        上传图片
                                    </el-button>
                               </template>
                               <!-- <template #tip>
