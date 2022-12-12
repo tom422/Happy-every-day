@@ -12,7 +12,7 @@
 import * as klouds from 'klouds'   
 import { Get } from '@/api/requerst';
 import { onMounted, ref } from '@vue/runtime-core';
-import HeaderVue from '@/components/Header/Header.vue';
+import HeaderVue from '@/components/Header/PageHeader.vue';
 import FooterVue from '@/components/Footer/Footer.vue';
 const myClouds = ref(null)
 onMounted(()=>{

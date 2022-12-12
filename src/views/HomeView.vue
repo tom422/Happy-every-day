@@ -46,12 +46,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Header from '@/components/Header/Header.vue';
 import { Picture } from '@element-plus/icons-vue'
 export default defineComponent({
   name: 'HomeView',
   components: {
-    Header,
     Picture
   },
   mounted(){

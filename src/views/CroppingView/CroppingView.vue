@@ -4,28 +4,43 @@
           <div class="image-box">
                <img ref="image" src="@/assets/images/image.jpg" />
           </div>
-          <div>
-               <el-input-number v-model="cropperWidth" :min="1" :max="2000" @change="setWidth" />
-               <el-input-number v-model="cropperHeight" :min="1" :max="2000" @change="setWidth" />
-               <el-button @click="setWidth">确认</el-button>
-
-               <div>
-                    <el-upload ref="uploadRef" class="upload-demo"
-                         action="" accept="image/*" :http-request="uploadPictures">
-                         <template #trigger>
-                              <el-button type="primary">
-                                   <el-icon><UploadFilled /></el-icon>
-                              </el-button>
-                         </template>
-                         <template #tip>
-                              <div class="el-upload__tip">
-                                   jpg/png files with a size less than 500kb
-                              </div>
-                         </template>
-                    </el-upload>
+          <div class="operation">
+              
+               <div class="row">
+                    <div class="row-col">
+                         <span class="row-lable">宽度：</span>
+                         <el-input-number v-model="cropperWidth" :min="1" :max="2000" :step="50" @change="setSize" />
+                    </div>
+                    <div class="row-col">
+                         <span class="row-lable">高度：</span>
+                         <el-input-number v-model="cropperHeight" :min="1" :max="2000" :step="50" @change="setSize" />
+                    </div>
+                    <div class="row-col">
+                         <el-upload ref="upload" class="upload-demo" :limit="1" action="" accept="image/*"
+                              :http-request="uploadPictures" :on-exceed="handleExceed" >
+                              <template #trigger>
+                                   <el-button type="primary">
+                                        <el-icon>
+                                             <UploadFilled />
+                                        </el-icon>
+                                   </el-button>
+                              </template>
+                              <!-- <template #tip>
+                                   <div class="el-upload__tip">
+                                        jpg/png files with a size less than 500kb
+                                   </div>
+                              </template> -->
+                         </el-upload>
+                    </div>
+                    <div class="row-col">
+                         <el-button type="primary" @click="onFileSave">裁剪图片</el-button>
+                    </div>
+               </div>
+               <div class="row">
+                    
                </div>
           </div>
-          <el-button @click="onFileSave">裁剪图片</el-button>
+
           <ImageDialog ref="imageVue"></ImageDialog>
      </div>
 </template>
@@ -37,12 +52,13 @@ import 'cropperjs/dist/cropper.css'
 import Cropper from 'cropperjs';
 import ImageDialog from './imageDialog.vue';
 import { UploadFilled } from '@element-plus/icons-vue'
-import type { UploadInstance } from 'element-plus'
+import { genFileId } from 'element-plus'
+import type { UploadInstance , UploadProps, UploadRawFile } from 'element-plus'
 
 const uploadRef = ref<UploadInstance>()
 
 const submitUpload = () => {
-  uploadRef.value!.submit()
+     uploadRef.value!.submit()
 }
 
 const imageVue = ref<VueElement>()
@@ -53,10 +69,21 @@ let myCropper: Cropper
 onMounted(() => {
      myCropper = new Cropper(image.value as unknown as HTMLImageElement)
 })
+
+ 
+
+const upload = ref<UploadInstance>()
+
+const handleExceed: UploadProps['onExceed'] = (files) => {
+  upload.value!.clearFiles()
+  const file = files[0] as UploadRawFile
+  file.uid = genFileId()
+  upload.value!.handleStart(file)
+}
 // 设置宽高
 const cropperWidth = ref(100)
 const cropperHeight = ref(100)
-const setWidth = () => {
+const setSize = () => {
      myCropper.setData({
           width: cropperWidth.value,
           height: cropperHeight.value
@@ -81,7 +108,6 @@ const onFileSave = () => {
      const data = myCropper.getCroppedCanvas({
           imageSmoothingQuality: 'high'
      }).toDataURL('image/jpeg')
-     console.log(imageVue.value);
      const dialogImage = imageVue.value as any
      dialogImage.open(data)
 
@@ -90,7 +116,24 @@ const onFileSave = () => {
 </script>
 
 <style lang="scss" scoped>
-.image-box{
+.image-box {
      max-height: 500px;
+}
+
+.operation {
+     padding: 20px;
+
+     .row {
+          padding: 10px 0;
+          display: flex;
+          .row-col{
+               margin: 0 5px;
+          }
+
+          .row-lable{
+               font-size: 13px;
+
+          }
+     }
 }
 </style>
