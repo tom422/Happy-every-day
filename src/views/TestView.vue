@@ -22,7 +22,7 @@
             <canvas ref="myCanvas" width="800" height="400"></canvas>
         </div>
 
-        <div class="preview">
+        <div class="preview" v-if="imgText">
             <div style="text-align: center;">
                 <el-button @click="onCopyText(imgText)"> 复制文本</el-button>
             </div>
@@ -36,7 +36,7 @@
 import { onMounted, ref } from 'vue';
 import { imageToGrey, toChars } from '@/tool/pic_to_chars';
 import type { UploadRequestOptions,UploadUserFile } from 'element-plus';
-import { UploadFilled } from '@element-plus/icons-vue';
+import { Message, UploadFilled } from '@element-plus/icons-vue';
 import { copyText } from '@/tool/tool'
 const myCanvas = ref<HTMLCanvasElement | null>(null);
 const imgNode = ref<HTMLImageElement | null>(null);
@@ -98,7 +98,10 @@ const upload = (Options: UploadRequestOptions) => {
 		}
 }   
 
-const onCopyText = copyText
+const onCopyText = (str: string)=>{
+    copyText(str)
+    Message
+}
 
 </script>
 

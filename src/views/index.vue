@@ -27,10 +27,10 @@ onMounted(()=>{
     instance.setBgColor('#fff');
     instance.start()
 })
-Get('/tool/login').then((res)=>{
-    console.log(res);
-    window.sessionStorage.setItem('csrf',res as string)
-})
+// Get('/tool/login').then((res)=>{
+//     console.log(res);
+//     window.sessionStorage.setItem('csrf',res as string)
+// })
 </script>
 
 <style scoped>

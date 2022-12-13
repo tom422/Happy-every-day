@@ -56,6 +56,8 @@ import { UploadFilled } from '@element-plus/icons-vue'
 import { genFileId } from 'element-plus'
 import type { UploadInstance , UploadProps, UploadRawFile } from 'element-plus'
 
+console.log(ImageDialog);
+
 const uploadRef = ref<UploadInstance>()
 
 const submitUpload = () => {
