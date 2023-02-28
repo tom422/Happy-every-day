@@ -25,7 +25,7 @@
           <el-card shadow="hover" @click="jumRouter('/CloudView')"> 云 </el-card>
         </el-col>
         <el-col class="col" :span="8">
-          <el-card shadow="hover" @click="jumRouter('/CloudView')"> 云 </el-card>
+          <el-card shadow="hover" @click="jumRouter('/DataTranslateView')"> 格式化插件 </el-card>
         </el-col>
         <!-- <el-col class="col" :span="8">
           <el-card shadow="hover" @click="jumRouter('/CloudView')"> 云 </el-card>
