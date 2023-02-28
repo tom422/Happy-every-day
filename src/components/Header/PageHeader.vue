@@ -7,7 +7,7 @@
             <div>
               <div class="icon-title">开心每一天</div>
               <div class="line"></div>
-              <div class="icon-subtitle">live-each-day</div>
+              <div class="icon-subtitle">Happy-every-day</div>
             </div>
           </div>
         </el-col>
