@@ -46,6 +46,13 @@ const routes: Array<RouteRecordRaw> = [
         component: () =>
           import( "../views/CroppingView/CroppingView.vue"),
       },
+      {
+        path: "/DataTranslateView",
+        name: "DataTranslateView",
+        
+        component: () =>
+          import( "../views/DataTranslate/DataTranslateView.vue"),
+      },
     ],
   },
 ];

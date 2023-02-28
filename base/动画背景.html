@@ -8,54 +8,31 @@
 </head>
 <body>
     
+<script>
+    setTimeout(() => {
+        Notification.requestPermission().then(function (permission) {
+            if (permission === 'granted') {
+                console.log('用户允许通知');
+            } else if (permission === 'denied') {
+                console.log('用户拒绝通知');
+            }
+        });
+
+        var n = new Notification('状态更新提醒', {
+            body: '你的朋友圈有3条新状态，快去查看吧',
+            tag: 'linxin',
+            icon: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fblog%2F202106%2F14%2F20210614060633_74f83.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1676108658&t=8383febe05220602291d7b90bbb99039',
+            requireInteraction: true
+        })
+
+          n.onclick = function () {
+            console.log(n);
+            window.open('./img.html', '_blank');      // 打开网址
+            n.close();                              // 并且关闭通知
+        }
+
+    }, 1000)
+</script>
+
 </body>
 </html>
-
-
-<style>
-
-    @property --color-mian {
-        syntax: '<color>';
-        inherits: false;
-        initial-value: #ffd900bb;
-    }
-
-    @property --color-base {
-        syntax: '<color>';
-        inherits: false;
-        initial-value: #fff;
-    }
-    body{
-        --bg-size:25px;
-        --bg-size2: 50px;
-        height: 100vh;
-        background-image: repeating-linear-gradient(45deg, transparent, transparent var(--bg-size), var(--color-mian) var(--bg-size), var(--color-mian) var(--bg-size2));
-        background-size:  200px 100% ;
-        animation: myfirst 10s linear  infinite; 
-    }
-
-    @keyframes myfirst
-    {
-        from {
-            --bg-size:25px;
-            --bg-size2: 50px;
-           /* background-position: 0 0; */
-           /* background-position: 0%; */
-        }
-        to {
-            --bg-size:55px;
-            --bg-size2:100px;
-            /* background-position: -100%; */
-        }
-    }
-    /* Safari 与 Chrome */
-    /* @-webkit-keyframes myfirst 
-    {
-        from {
-            
-        }
-        to {
-            
-        }
-    } */
-</style>
