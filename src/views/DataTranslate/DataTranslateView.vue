@@ -13,7 +13,7 @@
             </div>
             <div class="item ">
                 <div class="t_right">
-                    <el-button type="text" @click="copyText()">复制</el-button>
+                    <!-- <el-button type="text" @click="copyText()">复制</el-button> -->
                 </div>
                 <div class="pre">
                     <highlightjs
