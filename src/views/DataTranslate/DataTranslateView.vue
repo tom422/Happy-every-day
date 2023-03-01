@@ -1,14 +1,20 @@
 <template>
     <div class="page">
         <div class="header">
-            <el-button type="primary" @click="copyText()">复制</el-button>
-            <el-button type="success" @click="conversionTable">转化</el-button>
+           
+           
         </div>
         <div class="box">
             <div class="item ">
+                <div class="t_right">
+                    <el-button type="text" @click="conversionTable">转化</el-button>
+                </div>
                 <textarea v-model="text" class="textarea "></textarea>
             </div>
             <div class="item ">
+                <div class="t_right">
+                    <el-button type="text" @click="copyText()">复制</el-button>
+                </div>
                 <div class="pre">
                     <highlightjs
                         language="JavaScript"
@@ -52,18 +58,18 @@ function conversionTable() {
     min-width: 1000px;
 }
 
-.header {
-    height: 60px;
-    line-height: 60px;
-    background: #0066b8;
-    padding: 0 20px;
-    box-shadow: 0 2px 4px #00000014;
-}
+// .header {
+//     height: 60px;
+//     line-height: 60px;
+//     background: #0066b8;
+//     padding: 0 20px;
+//     box-shadow: 0 2px 4px #00000014;
+// }
 
 .box {
     display: flex;
     justify-content: space-between;
-    height: 800px;
+    height: 500px;
 }
 
 .bg {
@@ -98,15 +104,16 @@ function conversionTable() {
     resize: none;
     outline: none;
     width: calc(100% - 16px);
-    height: calc(100% - 16px);
+    height: 90%;
     box-sizing: content-box;
+    border-color:#d2d2d2;
 }
 
 .pre {
     width: 100%;
-    height: 100%;
+    height: 90%;
     /* padding: 1rem; */
-    border: 1px solid #535353;
+    border: 1px solid #d2d2d2;
     box-sizing: content-box;
     overflow: auto;
     /* background-color: rgba(51, 51, 51, 0.079); */
@@ -114,5 +121,9 @@ function conversionTable() {
 
 .pre>>>code {
     min-height: 100vh;
+}
+
+.t_right {
+    text-align: right;
 }
 </style>

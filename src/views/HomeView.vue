@@ -1,12 +1,14 @@
 <template>
   <div class="home page-content">
    
-    <el-carousel :interval="5000" arrow="always">
+    <!-- <el-carousel :interval="5000" arrow="always">
       <el-carousel-item v-for="item in 4" :key="item">
         <h3 text="2xl" justify="center">{{ item }}</h3>
       </el-carousel-item>
-    </el-carousel>
+    </el-carousel> -->
+    <div style="height:200px">
 
+    </div>
     <div class="card">
       <el-row :gutter="12">
         <el-col class="col" :span="8">
@@ -16,7 +18,9 @@
           </el-card>
         </el-col>
         <el-col class="col" :span="8">
-          <el-card shadow="hover" @click="jumRouter('/test')"> 图片转字符串 </el-card>
+          <el-card shadow="hover" @click="jumRouter('/test')"> 
+            图片转字符串
+          </el-card>
         </el-col>
         <el-col class="col" :span="8">
           <el-card shadow="hover" @click="jumRouter('/about')"> Hover </el-card>
