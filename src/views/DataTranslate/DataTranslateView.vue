@@ -39,7 +39,7 @@
 <!--  -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import conversion from './index.ts'
+import conversion from './index'
 // const beautifyJS = require('js-beautify').js_beautify
 // const beautifyHtml = require('js-beautify').html_beautify 
 let text = ref('name string 名字(1测试一2测试二)')

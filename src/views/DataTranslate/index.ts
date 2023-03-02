@@ -16,6 +16,16 @@ function randomRangeId() {
 // 生成代码
 function conversion(value: string) {
     let rowslist = value.split("\n");
+
+
+    // switch (rowslist) {
+    //     case '':
+            
+    //         break;
+    
+    //     default:
+    //         break;
+    // }
     type TableInfo= {
         border: false, // 是否带有纵向边框，默认为false
         loading: false, // 加载中动画
@@ -135,8 +145,8 @@ function setProp(propstr: string, propName: string) {
         }
         template =
             `<template slot="${propName}" slot-scope="current">
-${template}
-</template>`
+                ${template}
+            </template>`
         return {
             template: template,
             list: arr
@@ -187,6 +197,14 @@ export default {
 </style>
 `
     return template
+}
+
+/**
+ * 语法分析器
+ */
+function grammarParser(codeTxt:string){
+
+ 
 }
 
 export default conversion
