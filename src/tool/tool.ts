@@ -26,3 +26,13 @@ export function copyText(text:string){
     }
 
 }
+
+
+export function clone(obj:any){
+    const data = null
+    if (obj.prototype.toString.call(obj)) {
+        
+    }
+    return data;
+
+}
